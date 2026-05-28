@@ -1,179 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ontario Grant Action Sheet 2026</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+  <style>
+    :root {
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555555;
+      --color-text-tertiary: #888888;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f5f3;
+      --color-border-tertiary: rgba(0,0,0,0.12);
+      --color-border-secondary: rgba(0,0,0,0.25);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-<h2 class="sr-only">Grant action sheet listing all grants open to apply for between now and December 2026, with deadlines and application checklists.</h2>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<style>
-  .sheet { padding: 1.5rem 0; }
-  .page-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 0.5rem; }
-  .page-title { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 0.25rem; }
-  .page-sub { font-size: 14px; color: var(--color-text-secondary); margin: 0 0 1.75rem; }
-  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.4rem 0.75rem; border-radius: var(--border-radius-md); margin: 1.75rem 0 0.75rem; display: inline-block; }
-  .section-open { background: #EAF3DE; color: #3B6D11; }
-  .section-fed { background: #E6F1FB; color: #185FA5; }
-  .section-rolling { background: #F1EFE8; color: #5F5E5A; }
-  .grant-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
-  .grant-card:hover { border-color: var(--color-border-secondary); }
-  .grant-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 0.6rem; }
-  .grant-name { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
-  .grant-funder { font-size: 12px; color: var(--color-text-secondary); margin: 2px 0 0; }
-  .deadline-badge { flex-shrink: 0; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: var(--border-radius-md); white-space: nowrap; }
-  .badge-urgent { background: #FCEBEB; color: #A32D2D; }
-  .badge-soon { background: #FAEEDA; color: #854F0B; }
-  .badge-later { background: #EAF3DE; color: #3B6D11; }
-  .badge-rolling { background: #F1EFE8; color: #5F5E5A; }
-  .badge-imminent { background: #EEEDFE; color: #3C3489; }
-  .amount-row { display: flex; gap: 1.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
-  .amount-item { font-size: 12px; color: var(--color-text-secondary); }
-  .amount-item strong { color: var(--color-text-primary); font-weight: 500; }
-  .checklist-label { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 0.4rem; }
-  .checklist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 3px 16px; }
-  .checklist li { font-size: 13px; color: var(--color-text-secondary); display: flex; align-items: flex-start; gap: 6px; line-height: 1.5; }
-  .checklist li::before { content: ""; flex-shrink: 0; width: 14px; height: 14px; margin-top: 2px; border: 1.5px solid var(--color-border-secondary); border-radius: 3px; }
-  .covers { font-size: 12px; margin-top: 0.6rem; padding: 0.4rem 0.75rem; background: var(--color-background-secondary); border-radius: var(--border-radius-md); color: var(--color-text-secondary); }
-  .covers strong { color: var(--color-text-primary); font-weight: 500; }
-  .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 1.5rem 0; }
-  @media (max-width: 500px) { .checklist { grid-template-columns: 1fr; } .amount-row { gap: 0.75rem; } }
-</style>
+    body {
+      font-family: var(--font-sans);
+      background: #fafaf8;
+      color: var(--color-text-primary);
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+      line-height: 1.6;
+    }
+
+    .sheet { padding: 0; }
+    .page-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 0.5rem; }
+    .page-title { font-size: 28px; font-weight: 600; color: var(--color-text-primary); margin: 0 0 0.3rem; }
+    .page-sub { font-size: 15px; color: var(--color-text-secondary); margin: 0 0 2rem; }
+
+    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.4rem 0.85rem; border-radius: var(--border-radius-md); margin: 2rem 0 0.85rem; display: inline-block; }
+    .section-otf     { background: #E6F1FB; color: #185FA5; }
+    .section-fed     { background: #EAF3DE; color: #3B6D11; }
+    .section-rolling { background: #F1EFE8; color: #5F5E5A; }
+
+    .grant-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 0.85rem;
+      transition: border-color 0.15s;
+    }
+    .grant-card:hover { border-color: var(--color-border-secondary); }
+
+    .grant-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 0.65rem; }
+    .grant-name { font-size: 15px; font-weight: 600; color: var(--color-text-primary); }
+    .grant-funder { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+
+    .deadline-badge { flex-shrink: 0; font-size: 12px; font-weight: 600; padding: 4px 11px; border-radius: var(--border-radius-md); white-space: nowrap; }
+    .badge-urgent   { background: #FCEBEB; color: #A32D2D; }
+    .badge-soon     { background: #FAEEDA; color: #854F0B; }
+    .badge-later    { background: #EAF3DE; color: #3B6D11; }
+    .badge-rolling  { background: #F1EFE8; color: #5F5E5A; }
+    .badge-imminent { background: #EEEDFE; color: #3C3489; }
+
+    .amount-row { display: flex; gap: 1.5rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .amount-item { font-size: 12px; color: var(--color-text-secondary); }
+    .amount-item strong { color: var(--color-text-primary); font-weight: 600; }
+
+    .checklist-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 0.45rem; }
+    .checklist { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; margin-bottom: 0; }
+    .checklist li { font-size: 13px; color: var(--color-text-secondary); display: flex; align-items: flex-start; gap: 7px; line-height: 1.5; }
+    .checklist li::before {
+      content: "";
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      margin-top: 2px;
+      border: 1.5px solid var(--color-border-secondary);
+      border-radius: 3px;
+      background: #fff;
+    }
+
+    .covers { font-size: 12px; margin-top: 0.7rem; padding: 0.45rem 0.8rem; background: var(--color-background-secondary); border-radius: var(--border-radius-md); color: var(--color-text-secondary); }
+    .covers strong { color: var(--color-text-primary); font-weight: 600; }
+
+    .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 1.75rem 0; }
+
+    .footer { font-size: 12px; color: var(--color-text-tertiary); margin-top: 2rem; padding-top: 1rem; border-top: 0.5px solid var(--color-border-tertiary); }
+
+    @media (max-width: 560px) {
+      .checklist { grid-template-columns: 1fr; }
+      .amount-row { gap: 0.6rem; }
+      .grant-top { flex-direction: column; gap: 6px; }
+      .page-title { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
 
 <div class="sheet">
-  <p class="page-label">Grant action sheet · may 2026</p>
-  <h1 class="page-title">Grants open now through December 2026</h1>
-  <p class="page-sub">Calgary, Alberta & Federal programs · check each box before submitting</p>
+  <p class="page-label">Grant Action Sheet &middot; May 2026</p>
+  <h1 class="page-title">Grants Open Now Through December 2026</h1>
+  <p class="page-sub">Ontario provincial, private foundation &amp; federal programs &middot; check each box before submitting</p>
 
-  <span class="section-label section-open" aria-hidden="true">🏙 Calgary & Alberta — open 2026</span>
+  <!-- ===== SECTION 1: OTF ===== -->
+  <span class="section-label section-otf">&#127963; Ontario Trillium Foundation</span>
 
   <div class="grant-card">
     <div class="grant-top">
       <div>
-        <p class="grant-name">Crime Prevention & Community Safety Fund</p>
-        <p class="grant-funder">City of Calgary · CPIP + CSIF combined</p>
+        <p class="grant-name">OTF Seed Grant</p>
+        <p class="grant-funder">Ontario Trillium Foundation &middot; annual cycle</p>
       </div>
-      <span class="deadline-badge badge-urgent">Full apps due Jul 17</span>
+      <span class="deadline-badge badge-soon">Opens Jul 22 &middot; Deadline Aug 19, 2026</span>
     </div>
     <div class="amount-row">
-      <span class="amount-item"><strong>Amount:</strong> No min/max · proportionate to program</span>
-      <span class="amount-item"><strong>Term:</strong> 3 years (Jan 2027 – Dec 2029)</span>
-      <span class="amount-item"><strong>Pool:</strong> $9.5M/year</span>
+      <span class="amount-item"><strong>Amount:</strong> $10,000 &ndash; $75,000</span>
+      <span class="amount-item"><strong>Term:</strong> 6 or 12 months</span>
+      <span class="amount-item"><strong>Decisions:</strong> ~4&ndash;5 months after deadline</span>
     </div>
     <p class="checklist-label">Application checklist</p>
     <ul class="checklist">
-      <li>Invitation letter from EOI stage on file</li>
-      <li>Program description and theory of change</li>
-      <li>Detailed budget with salary breakdown</li>
-      <li>Evidence of community need / prior data</li>
-      <li>CRA charity registration or qualified donee status</li>
-      <li>Organizational financials (last 2 years)</li>
-      <li>FIMS account set up at calgary.ca</li>
-      <li>Letters of partner/community support</li>
+      <li>OTF Granting Portal account created at otf.ca</li>
+      <li>Organization registered/incorporated 12+ months</li>
+      <li>Deliver programs in one of OTF's 16 catchment areas</li>
+      <li>One of 4 eligible sectors confirmed</li>
+      <li>Project description &mdash; new pilot or capacity building</li>
+      <li>Detailed budget with quotes for items over $5,000</li>
+      <li>Audited financials or CRA T3010 (most recent year)</li>
+      <li>Financial statements demonstrating org health</li>
+      <li>Business Number on file</li>
+      <li>Letters of community support (if collaborative)</li>
     </ul>
-    <p class="covers"><strong>Covers:</strong> Program salaries, direct service delivery costs, operations · <em>Note: invited EOI applicants only</em></p>
+    <p class="covers"><strong>Covers:</strong> Staffing/salaries for project delivery, program costs, materials, digital capacity, org planning &middot; advance payments available &middot; first-timer friendly</p>
   </div>
 
   <div class="grant-card">
     <div class="grant-top">
       <div>
-        <p class="grant-name">CIP Project Grant</p>
-        <p class="grant-funder">Government of Alberta</p>
+        <p class="grant-name">OTF Grow Grant</p>
+        <p class="grant-funder">Ontario Trillium Foundation &middot; annual cycle</p>
       </div>
-      <span class="deadline-badge badge-urgent">Deadline Aug 15, 2026</span>
+      <span class="deadline-badge badge-later">Opens Oct 7 &middot; Deadline Nov 4, 2026</span>
     </div>
     <div class="amount-row">
-      <span class="amount-item"><strong>Amount:</strong> Up to 50% matching of eligible costs</span>
-      <span class="amount-item"><strong>Portal opens:</strong> June 2026 via GATE Front Office</span>
+      <span class="amount-item"><strong>Amount:</strong> $100,000 &ndash; $600,000</span>
+      <span class="amount-item"><strong>Term:</strong> 2 or 3 years</span>
+      <span class="amount-item"><strong>Decisions:</strong> ~4&ndash;5 months after deadline</span>
     </div>
     <p class="checklist-label">Application checklist</p>
     <ul class="checklist">
-      <li>GATE Front Office account created</li>
-      <li>Alberta non-profit incorporation docs</li>
-      <li>Project description and outcomes</li>
-      <li>Detailed budget (wages, materials, program costs)</li>
-      <li>Proof of matching/community fundraising</li>
-      <li>Financial statements (most recent year)</li>
-      <li>No overdue reporting on prior AB grants</li>
-      <li>Project timeline (must complete within 18 months)</li>
+      <li>OTF Granting Portal account at otf.ca</li>
+      <li>Organization registered/incorporated 12+ months</li>
+      <li>Proven program with demonstrated track record and data</li>
+      <li>Proof of ownership or 5-year lease agreement for space</li>
+      <li>Scaling or expansion plan with clear outcomes</li>
+      <li>Multi-year detailed budget (salaries eligible)</li>
+      <li>Audited financials (2+ years preferred)</li>
+      <li>Business Number on file</li>
+      <li>Collaborative Agreement (if joint application)</li>
+      <li>Quotes/estimates for goods/services over $5,000</li>
     </ul>
-    <p class="covers"><strong>Covers:</strong> Wages, office space, materials, program delivery, community events, gender equity &amp; 2SLGBTQQIA+ initiatives</p>
-  </div>
-
-  <div class="grant-card">
-    <div class="grant-top">
-      <div>
-        <p class="grant-name">Arts & Culture Microgrant — Intake 2</p>
-        <p class="grant-funder">City of Calgary</p>
-      </div>
-      <span class="deadline-badge badge-urgent">Deadline Sep 2, 2026</span>
-    </div>
-    <div class="amount-row">
-      <span class="amount-item"><strong>Amount:</strong> Tier amounts TBD · $1M total pool</span>
-      <span class="amount-item"><strong>For initiatives:</strong> Dec 2026 – May 2027</span>
-    </div>
-    <p class="checklist-label">Application checklist</p>
-    <ul class="checklist">
-      <li>Non-profit, charity, or community association status</li>
-      <li>Initiative description and community benefit</li>
-      <li>Budget for the specific initiative</li>
-      <li>One application per distinct initiative</li>
-      <li>Planned start date after Dec 2026</li>
-      <li>calgary.ca portal account</li>
-    </ul>
-    <p class="covers"><strong>Covers:</strong> Program and event costs · not core operations or salaries</p>
-  </div>
-
-  <div class="grant-card">
-    <div class="grant-top">
-      <div>
-        <p class="grant-name">Calgary Foundation — Community Grants</p>
-        <p class="grant-funder">Calgary Foundation · Fall 2026 cycle</p>
-      </div>
-      <span class="deadline-badge badge-soon">Opens late July · closes early Sep</span>
-    </div>
-    <div class="amount-row">
-      <span class="amount-item"><strong>Amount:</strong> $5,000 – $200,000</span>
-      <span class="amount-item"><strong>Territory:</strong> Calgary, Treaty 7, Rocky View, surrounding regions</span>
-    </div>
-    <p class="checklist-label">Application checklist</p>
-    <ul class="checklist">
-      <li>CRA registered charity or qualified donee</li>
-      <li>Online portal account at calgaryfoundation.org</li>
-      <li>Detailed project/program description</li>
-      <li>Full budget (salaries, equipment, admin all eligible)</li>
-      <li>Equity and reconciliation alignment statement</li>
-      <li>Measurable outcomes and evaluation plan</li>
-      <li>Audited financial statements</li>
-      <li>Board list and governance documents</li>
-    </ul>
-    <p class="covers"><strong>Covers:</strong> Salaries, materials, equipment, space rental, consultancy, technology, existing program admin costs · most flexible local grant</p>
-  </div>
-
-  <div class="grant-card">
-    <div class="grant-top">
-      <div>
-        <p class="grant-name">Calgary Foundation — Org & Program Development Grant</p>
-        <p class="grant-funder">Calgary Foundation · Fall 2026 cycle</p>
-      </div>
-      <span class="deadline-badge badge-soon">Opens late July · closes early Sep</span>
-    </div>
-    <div class="amount-row">
-      <span class="amount-item"><strong>Amount:</strong> Contact Calgary Foundation directly</span>
-    </div>
-    <p class="checklist-label">Application checklist</p>
-    <ul class="checklist">
-      <li>CRA registered charity or qualified donee</li>
-      <li>Specific capacity-building need identified</li>
-      <li>External consultant or trainer identified</li>
-      <li>Expected outcomes for staff/org development</li>
-      <li>Online portal account at calgaryfoundation.org</li>
-    </ul>
-    <p class="covers"><strong>Covers:</strong> Staff training, external expertise, capacity building, organizational development</p>
+    <p class="covers"><strong>Covers:</strong> Program salaries, scaling and delivery costs, reaching new populations &middot; largest OTF grant &mdash; best for established orgs with multi-year program data</p>
   </div>
 
   <hr class="divider">
-  <span class="section-label section-fed" aria-hidden="true">🍁 Federal — open to any province</span>
+
+  <!-- ===== SECTION 2: FEDERAL ===== -->
+  <span class="section-label section-fed">&#127809; Federal &mdash; Open to Any Province</span>
 
   <div class="grant-card">
     <div class="grant-top">
       <div>
         <p class="grant-name">New Horizons for Seniors Program (NHSP)</p>
-        <p class="grant-funder">Employment & Social Development Canada · 2026–27 cycle</p>
+        <p class="grant-funder">Employment &amp; Social Development Canada &middot; 2026&ndash;27 cycle</p>
       </div>
       <span class="deadline-badge badge-imminent">Call launching imminently</span>
     </div>
@@ -184,28 +183,28 @@
     </div>
     <p class="checklist-label">Application checklist</p>
     <ul class="checklist">
-      <li>GCOS account at canada.ca (apply online)</li>
+      <li>GCOS account created at canada.ca</li>
       <li>Project designed by and for seniors (55+)</li>
-      <li>Seniors in lead/planning/delivery roles</li>
+      <li>Seniors in lead, planning, or delivery roles</li>
       <li>Meets at least 1 of 5 NHSP objectives</li>
-      <li>Primary + secondary contact identified</li>
-      <li>Detailed budget (equipment, professional fees eligible)</li>
+      <li>Primary and secondary contact identified</li>
+      <li>Detailed project budget (equipment and fees eligible)</li>
       <li>Letters of community/partner support</li>
-      <li>Project start date planned for after agreement signing</li>
+      <li>Project start date after funding agreement signed</li>
     </ul>
-    <p class="covers"><strong>Covers:</strong> Equipment, program delivery, professional fees, capital for senior programs · <em>subscribe at canada.ca/nhsp — call could open any day</em></p>
+    <p class="covers"><strong>Covers:</strong> Equipment, program delivery, professional fees, capital for senior-focused programs &middot; <em>subscribe at canada.ca/nhsp &mdash; call could open any day</em></p>
   </div>
 
   <div class="grant-card">
     <div class="grant-top">
       <div>
-        <p class="grant-name">SDPP – Children & Families / Disability</p>
-        <p class="grant-funder">Employment & Social Development Canada · ad hoc calls</p>
+        <p class="grant-name">SDPP &mdash; Children &amp; Families / Disability</p>
+        <p class="grant-funder">Employment &amp; Social Development Canada &middot; ad hoc calls</p>
       </div>
-      <span class="deadline-badge badge-imminent">Watch — could open anytime</span>
+      <span class="deadline-badge badge-imminent">Watch &mdash; could open anytime</span>
     </div>
     <div class="amount-row">
-      <span class="amount-item"><strong>SDPP-CF:</strong> Varies · multi-year contributions</span>
+      <span class="amount-item"><strong>SDPP-CF:</strong> Varies &middot; multi-year contributions</span>
       <span class="amount-item"><strong>SDPP-D:</strong> Up to $150,000 over 3 years</span>
     </div>
     <p class="checklist-label">Preparation checklist (prepare now, apply when call opens)</p>
@@ -213,39 +212,90 @@
       <li>Alert set at canada.ca/en/esdc/funding</li>
       <li>CRA charitable registration confirmed</li>
       <li>Program description and target population</li>
-      <li>Staff/wage cost breakdown ready</li>
-      <li>Partnership letters (if applicable)</li>
-      <li>Multi-year evaluation framework drafted</li>
+      <li>Staff and wage cost breakdown ready</li>
+      <li>Partnership letters drafted (if applicable)</li>
+      <li>Multi-year evaluation framework outlined</li>
     </ul>
-    <p class="covers"><strong>Covers:</strong> Wages and employment-related costs explicitly eligible · children, families, disability, social inclusion</p>
+    <p class="covers"><strong>Covers:</strong> Wages and employment-related costs explicitly eligible &middot; children, families, disability, social inclusion</p>
   </div>
 
   <hr class="divider">
-  <span class="section-label section-rolling" aria-hidden="true">⟳ Rolling — apply anytime</span>
+
+  <!-- ===== SECTION 3: ROLLING ===== -->
+  <span class="section-label section-rolling">&#8635; Rolling &mdash; Apply Anytime</span>
 
   <div class="grant-card">
     <div class="grant-top">
       <div>
-        <p class="grant-name">Nickle Family Foundation</p>
-        <p class="grant-funder">Private foundation · Calgary & area</p>
+        <p class="grant-name">Law Foundation of Ontario &mdash; Responsive Grants</p>
+        <p class="grant-funder">Law Foundation of Ontario</p>
       </div>
-      <span class="deadline-badge badge-rolling">No deadline</span>
+      <span class="deadline-badge badge-rolling">No deadline &middot; rolling</span>
     </div>
     <div class="amount-row">
-      <span class="amount-item"><strong>Amount:</strong> Not publicly disclosed</span>
-      <span class="amount-item"><strong>Apply:</strong> nicklefoundation.org</span>
+      <span class="amount-item"><strong>Amount:</strong> Up to $250,000 over 2 years</span>
+      <span class="amount-item"><strong>Apply:</strong> lawfoundation.on.ca</span>
     </div>
     <p class="checklist-label">Application checklist</p>
     <ul class="checklist">
-      <li>Research current funding priorities first</li>
-      <li>Relationship contact established if possible</li>
-      <li>Org overview and impact summary</li>
-      <li>Budget and specific funding request</li>
+      <li>Non-profit, charity, or Indigenous group status</li>
+      <li>Project focused on access to justice in Ontario</li>
+      <li>Program description and underserved population identified</li>
+      <li>Budget including staff costs (eligible)</li>
+      <li>Organizational financials</li>
+      <li>Evaluation and reporting plan</li>
     </ul>
-    <p class="covers"><strong>Covers:</strong> General community benefit · social services, education, health, culture</p>
+    <p class="covers"><strong>Covers:</strong> Program staffing costs, legal education and research delivery &middot; one of Ontario's largest rolling grant opportunities</p>
   </div>
 
-  <p style="font-size: 12px; color: var(--color-text-tertiary); margin-top: 1.5rem; padding-top: 1rem; border-top: 0.5px solid var(--color-border-tertiary);">
-    Compiled May 25, 2026 · Verify all deadlines directly with funders before applying · For Ontario-specific open grants (OTF Seed, OTF Grow, Law Foundation, George Lunan) see the Ontario grant documents
+  <div class="grant-card">
+    <div class="grant-top">
+      <div>
+        <p class="grant-name">George Lunan Foundation</p>
+        <p class="grant-funder">Private foundation &middot; Ontario only</p>
+      </div>
+      <span class="deadline-badge badge-rolling">No deadline &middot; rolling</span>
+    </div>
+    <div class="amount-row">
+      <span class="amount-item"><strong>Amount:</strong> Typically up to $5,000</span>
+    </div>
+    <p class="checklist-label">Application checklist</p>
+    <ul class="checklist">
+      <li>Ontario-based registered non-profit or charity</li>
+      <li>Project in arts, education, environment, health/welfare, or social services</li>
+      <li>Brief org overview and mission statement</li>
+      <li>Specific funding request with budget</li>
+    </ul>
+    <p class="covers"><strong>Covers:</strong> Operating funds, equipment, seed money, special projects &middot; explicitly eligible &middot; good for small or newer organizations</p>
+  </div>
+
+  <div class="grant-card">
+    <div class="grant-top">
+      <div>
+        <p class="grant-name">Keg Spirit Foundation</p>
+        <p class="grant-funder">Corporate foundation</p>
+      </div>
+      <span class="deadline-badge badge-rolling">Rolling LOI &middot; no deadline</span>
+    </div>
+    <div class="amount-row">
+      <span class="amount-item"><strong>Amount:</strong> $2,000 &ndash; $5,000</span>
+      <span class="amount-item"><strong>Process:</strong> Letter of Interest &rarr; invited full proposal</span>
+    </div>
+    <p class="checklist-label">LOI checklist</p>
+    <ul class="checklist">
+      <li>Organization focused on youth at risk</li>
+      <li>Brief Letter of Interest (LOI) submitted first</li>
+      <li>Program description and youth impact data</li>
+      <li>Budget summary for the program</li>
+    </ul>
+    <p class="covers"><strong>Covers:</strong> Program delivery costs &middot; youth at risk, social services</p>
+  </div>
+
+  <p class="footer">
+    Compiled May 25, 2026 &middot; Verify all deadlines directly with funders before applying &middot;
+    For grants closing in 2026 but reopening in 2027 (OTF Capital, EASE, Canada Summer Jobs, Enabling Accessibility Fund, United Way GT) see the Ontario Grants 2026 By Status document.
   </p>
 </div>
+
+</body>
+</html>
